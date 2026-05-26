@@ -47,6 +47,11 @@
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\RelayCommand.cs" />
+    <Compile Include="Models\ContentBlock.cs" />
+    <Compile Include="Models\ContentBlockType.cs" />
+    <Compile Include="Models\PlatformItem.cs" />
+    <Compile Include="Models\GameItem.cs" />
+    <Compile Include="Selectors\ContentBlockTemplateSelector.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
