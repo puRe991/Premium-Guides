@@ -30,6 +30,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <ItemGroup><ProjectReference Include="..\GameGuideApp.Core\GameGuideApp.Core.csproj"><Project>{22222222-2222-2222-2222-222222222222}</Project><Name>GameGuideApp.Core</Name></ProjectReference></ItemGroup>
   <ItemGroup>
