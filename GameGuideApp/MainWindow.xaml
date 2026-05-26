@@ -1,0 +1,54 @@
+<Window x:Class="GameGuideApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Game Guide Platform" Height="560" Width="980">
+    <Grid Margin="16">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Linke Spalte: Guide-Liste + Aktionen -->
+        <StackPanel Grid.Column="0" Margin="0,0,10,0">
+            <TextBlock Text="Guides" FontSize="22" FontWeight="Bold"/>
+            <TextBlock Text="Lizenzstatus:" Margin="0,12,0,0" FontWeight="SemiBold"/>
+            <TextBlock Text="{Binding LicenseStatus}" Margin="0,2,0,10"/>
+
+            <ListBox ItemsSource="{Binding Guides}" SelectedItem="{Binding SelectedGuide}" Height="320">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding GameName}" FontWeight="SemiBold"/>
+                            <TextBlock Text="{Binding Title}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <Button Content="Beispieldaten laden" Command="{Binding LoadDemoDataCommand}" Margin="0,8,0,0"/>
+            <Button Content="Guides speichern" Command="{Binding SaveGuidesCommand}" Margin="0,8,0,0"/>
+        </StackPanel>
+
+        <!-- Rechte Spalte: Bearbeitung des gewählten Guides -->
+        <StackPanel Grid.Column="1">
+            <TextBlock Text="Spiel" FontWeight="SemiBold"/>
+            <TextBox Text="{Binding SelectedGuide.GameName, UpdateSourceTrigger=PropertyChanged}" Margin="0,2,0,6"/>
+
+            <TextBlock Text="Guide-Titel" FontWeight="SemiBold"/>
+            <TextBox Text="{Binding SelectedGuide.Title, UpdateSourceTrigger=PropertyChanged}" Margin="0,2,0,6"/>
+
+            <TextBlock Text="Kategorie" FontWeight="SemiBold"/>
+            <TextBox Text="{Binding SelectedGuide.Category, UpdateSourceTrigger=PropertyChanged}" Margin="0,2,0,6"/>
+
+            <TextBlock Text="Map/Grafik (Dateipfad oder URL)" FontWeight="SemiBold"/>
+            <TextBox Text="{Binding SelectedGuide.MapAssetPath, UpdateSourceTrigger=PropertyChanged}" Margin="0,2,0,6"/>
+
+            <TextBlock Text="Guide-Inhalt" FontWeight="SemiBold"/>
+            <TextBox Text="{Binding SelectedGuide.Content, UpdateSourceTrigger=PropertyChanged}"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"
+                     VerticalScrollBarVisibility="Auto"
+                     Height="260"/>
+        </StackPanel>
+    </Grid>
+</Window>
