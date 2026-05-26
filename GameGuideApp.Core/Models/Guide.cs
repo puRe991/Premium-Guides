@@ -16,6 +16,8 @@ namespace GameGuideApp.Core.Models
         // Sichtbarer Titel des Guides.
         public string Title { get; set; }
 
+        public string Subtitle { get; set; }
+
         // Kategorie (z. B. Leveling, PvE, Boss, Crafting).
         public string Category { get; set; }
 
@@ -31,5 +33,7 @@ namespace GameGuideApp.Core.Models
 
         // Kennzeichnet Premium-/gesperrte Inhalte.
         public bool IsLocked { get; set; }
+
+        public bool IsPremium { get; set; }
     }
 }
