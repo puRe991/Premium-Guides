@@ -1,0 +1,25 @@
+<Window x:Class="GameGuideApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Game Guide Platform" Height="500" Width="900">
+    <Grid Margin="16">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Margin="0,0,10,0">
+            <TextBlock Text="Guides" FontSize="22" FontWeight="Bold"/>
+            <TextBlock Text="Status:" Margin="0,12,0,0" FontWeight="SemiBold"/>
+            <TextBlock Text="{Binding LicenseStatus}" Margin="0,2,0,10"/>
+            <ListBox ItemsSource="{Binding Guides}" SelectedItem="{Binding SelectedGuide}" DisplayMemberPath="Title" Height="320"/>
+            <Button Content="Load Demo Data" Command="{Binding LoadDemoDataCommand}" Margin="0,8,0,0"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1">
+            <TextBlock Text="{Binding SelectedGuide.Title}" FontSize="20" FontWeight="Bold"/>
+            <TextBlock Text="{Binding SelectedGuide.Category}" FontStyle="Italic" Margin="0,0,0,8"/>
+            <TextBox Text="{Binding SelectedGuide.Content}" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Height="340" IsReadOnly="True"/>
+        </StackPanel>
+    </Grid>
+</Window>
